@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPIRA | Youth Entrepreneurship Organization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        
+        /* ===== Enhanced Color Scheme ===== */
+        :root {
+            --navy: #0a192f;         /* Primary navy blue */
+            --navy-dark: #071223;    /* Darker navy */
+            --navy-light: #1d2f4f;   /* Lighter navy */
+            --pink: #e7aec8f3;         /* Primary pink */
+            --pink-light: #ebc1d4;   /* Lighter pink */
+            --pink-pale: #ffe6f2;    /* Very pale pink */
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+            --slate: #8892b0;
+            --slate-light: #ccd6f6;
+        }
+
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--white);
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--pink);
+            color: var(--navy);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(230, 198, 213, 0.89);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgb(238, 208, 236);
+            background-color: #e7b0c2;
+           
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--pink);
+            border: 2px solid var(--pink);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 126, 185, 0.1);
+        }
+
+        /* ===== Header ===== */
+        header {
+            background-color: var(--navy);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 126, 185, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .main {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo-text .sub {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--pink);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--pink);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--pink);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            padding-top: 140px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background-color: var(--pink);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background-color: var(--pink);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 52px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero-title span {
+            color: var(--pink);
+            position: relative;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: var(--pink);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--slate-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            margin-bottom: 50px;
+        }
+
+        .hero-image {
+            margin-top: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 126, 185, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== About Section ===== */
+        .about {
+            background-color: var(--navy-light);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1" fill="%23ff7eb9" opacity="0.2"/><circle cx="75" cy="75" r="1" fill="%23ff7eb9" opacity="0.2"/><circle cx="25" cy="75" r="1" fill="%23ff7eb9" opacity="0.2"/><circle cx="75" cy="25" r="1" fill="%23ff7eb9" opacity="0.2"/></svg>');
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: var(--pink);
+        }
+
+        .section-description {
+            color: var(--slate-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+      
+
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 16px;
+            color: var(--slate-light);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgb(168, 144, 163);
+        }
+        
+
+        /* ===== Mission Section ===== */
+        .mission {
+            background-color: var(--navy);
+        }
+
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .mission-card {
+            background: var(--navy-light);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 126, 185, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--pink);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .mission-icon {
+            font-size: 40px;
+            color: var(--pink);
+            margin-bottom: 20px;
+        }
+
+        .mission-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .mission-description {
+            color: var(--slate-light);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* ===== Team Section ===== */
+        .team {
+            background-color: var(--navy-light);
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: var(--navy);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 126, 185, 0.2);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,126,185,0.1) 0%, rgba(255,126,185,0) 100%);
+            z-index: 1;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 25px 20px;
+        }
+
+        .member-name {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .member-role {
+            color: var(--pink);
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .member-bio {
+            color: var(--slate-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background-color: var(--navy-dark);
+            color: var(--white);
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--pink), var(--pink-light));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--pink);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 12px;
+        }
+
+        .footer-link a {
+            color: var(--slate-light);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-link a:hover {
+            color: var(--pink);
+            padding-left: 5px;
+        }
+
+        .footer-link i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--pink);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--navy);
+            color: var(--slate);
+            font-size: 14px;
+        }
+
+        /* ===== Responsive Styles ===== */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .hero-title {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: var(--navy);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-link {
+                padding: 15px 0;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text .main {
+                font-size: 22px;
+            }
+            
+            .logo-text .sub {
+                font-size: 10px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="images\aspira.jpg" alt="ASPIRA Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="main">ASPIRA</span>
+                    <span class="sub">YOUTH ORGANIZATION</span>
+                </div>
+            </a>
+            
+            <nav>
+                <div class="nav-links" id="navLinks">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#mission" class="nav-link">Our Mission</a>
+                    <a href="#team" class="nav-link">Our Team</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Empowering <span>Young Entrepreneurs</span></h1>
+                <p class="hero-subtitle">
+                    ASPIRA is a youth-led organization dedicated to fostering entrepreneurship and innovation among young people through education, mentorship, and practical experiences.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#join" class="btn">Join Now</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="ASPIRA Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About <span> Aspira </span></h2>
+                <p class="section-description">
+                    Aspira is a fully remote club dedicated to exploring business through engaging Instagram content. Our members collaborate on marketing, finance, entrepreneurship, and more to create informative and inspiring posts. By joining Aspira, you will gain hands-on experience in branding, strategy, and leadership—all while working with a passionate team.
+                </p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                       
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="images\aspira.jpg" alt="ASPIRA Members">
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Mission Section -->
+<section class="mission" id="mission">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our <span>Modules</span></h2>
+            <p class="section-description">
+                Here are some of our modules in our organization.
+            </p>
+        </div>
+        
+        <div class="mission-cards-container">
+            <div class="mission-cards">
+                <!-- First row - always visible -->
+                <div class="mission-cards-row">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-chess-queen"></i>
+                        </div>
+                        <h3 class="mission-title">Leadership & Management</h3>
+                        <p class="mission-description">
+                            Develop essential leadership skills, team management techniques, and strategic decision-making abilities.
+                        </p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="mission-title">Entrepreneurship & Innovation</h3>
+                        <p class="mission-description">
+                            Master financial literacy, budgeting, fundraising, and investment strategies for startups.
+                        </p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3 class="mission-title">Marketing & Branding</h3>
+                        <p class="mission-description">
+                            Learn digital marketing strategies and brand development for modern businesses.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Second row - hidden initially -->
+                <div class="mission-cards-row hidden-cards">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="mission-title"> Finance & Accounting </h3>
+                        <p class="mission-description">
+                            Cultivate creative thinking and innovative approaches to business challenges.
+                        </p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="mission-title"> Business Law & Ethics </h3>
+                        <p class="mission-description">
+                            Build professional networks and collaboration skills for business growth.
+                        </p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="mission-title"> Join Us! </h3>
+                        <p class="mission-description">
+                            Join Us as Either Members or Officers to learn and make a impact in your community and future. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="expand-button" id="expandButton"></button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .mission-cards-container {
+        position: relative;
+    }
+    
+    .mission-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .mission-cards-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    
+    .hidden-cards {
+        display: none;
+        animation: fadeIn 0.5s ease;
+    }
+    
+    .expand-button {
+        display: block;
+        margin: 50px auto 0;
+        background-color: transparent;
+        color: var(--pink);
+        border: 2px solid var(--pink);
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .expand-button:hover {
+        background-color: rgba(255, 126, 185, 0.1);
+    }
+    
+    .expand-button::after {
+        content: 'View More Modules';
+    }
+    
+    .expand-button.expanded::after {
+        content: 'View Less Modules';
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const expandButton = document.getElementById('expandButton');
+        const hiddenCards = document.querySelector('.hidden-cards');
+        
+        // Initially hide extra cards
+        hiddenCards.style.display = 'none';
+        
+        expandButton.addEventListener('click', function() {
+            this.classList.toggle('expanded');
+            hiddenCards.style.display = hiddenCards.style.display === 'none' ? 'grid' : 'none';
+            
+            // Smooth scroll to maintain position
+            if (hiddenCards.style.display === 'grid') {
+                setTimeout(() => {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 500);
+            }
+        });
+    });
+</script>
+  
+    <!-- Team Section -->
+<section class="team" id="team">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Meet <span>Our Team</span></h2>
+            <p class="section-description">
+                The passionate young individuals who make ASPIRA possible
+            </p>
+        </div>
+        
+        <div class="team-members">
+            <!-- Your original 4 members -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Myra Dogra">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Myra Dogra</h4>
+                    <p class="member-role">Founder & President</p>
+                    <p class="member-bio">
+                        Visionary leader passionate about creating opportunities for youth through innovative programs and initiatives.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQFhTBGOfl5wTw/profile-displayphoto-scale_200_200/B56ZhY4ePEHMAc-/0/1753837857284?e=1756944000&v=beta&t=NhY-gRhXOdD12SW-xYVbTIGJ2NRKPmm60EyOTAxZ1Cg" alt="Shivang Patel">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Shivang Patel</h4>
+                    <p class="member-role">Video Reels Officer</p>
+                    <p class="member-bio">
+                        Tech enthusiast and business strategist focused on helping young people develop digital and entrepreneurial skills. Skilled in multiple techstacks and is a FullStack engineer. Coded for this website.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="images/WhatsApp Image 2025-08-03 at 22.45.32_67b7f6b1.jpg" alt="Leah Demissie">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Leah Demissie</h4>
+                    <p class="member-role">Operations Lead</p>
+                    <p class="member-bio">
+                        Hi, I am Leah Demissie, and I am so excited to be Operations Lead for ASPIRA. I Cannot wait to help keep everything running smoothly and support the team behind the scenes. Usually, you can find me listening to music or reading.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="David Kim">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Filler</h4>
+                    <p class="member-role">Finance Director</p>
+                    <p class="member-bio">
+                        Numbers whiz committed to ensuring financial sustainability for youth programs.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Additional 10 hidden members (will show when button clicked) -->
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophia Chen">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Sophia Chen</h4>
+                    <p class="member-role">Marketing Director</p>
+                    <p class="member-bio">
+                        Creative strategist with a passion for building brand awareness and engaging youth audiences through innovative campaigns.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">James Wilson</h4>
+                    <p class="member-role">Tech Coordinator</p>
+                    <p class="member-bio">
+                        Software developer dedicated to teaching coding skills to underprivileged youth and creating accessible tech education programs.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Patel">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Priya Patel</h4>
+                    <p class="member-role">Events Manager</p>
+                    <p class="member-bio">
+                        Expert in organizing impactful youth events that foster networking, learning, and community building.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Marcus Johnson">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Marcus Johnson</h4>
+                    <p class="member-role">Mentorship Lead</p>
+                    <p class="member-bio">
+                        Connects young people with industry professionals to provide guidance and career development opportunities.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Elena Rodriguez">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Elena Rodriguez</h4>
+                    <p class="member-role">Partnerships Manager</p>
+                    <p class="member-bio">
+                        Builds strategic relationships with organizations to create more opportunities for ASPIRA members.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="David Kim">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">David Kim</h4>
+                    <p class="member-role">Content Creator</p>
+                    <p class="member-bio">
+                        Produces engaging digital content that showcases ASPIRA's impact and inspires youth participation.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Aisha Mohammed">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Aisha Mohammed</h4>
+                    <p class="member-role">Community Outreach</p>
+                    <p class="member-bio">
+                        Works directly with local communities to ensure ASPIRA's programs meet the needs of diverse youth populations.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos Mendez">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Carlos Mendez</h4>
+                    <p class="member-role">Workshop Facilitator</p>
+                    <p class="member-bio">
+                        Designs and leads interactive workshops on leadership, career readiness, and personal development.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Olivia Smith">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Olivia Smith</h4>
+                    <p class="member-role">Social Media Manager</p>
+                    <p class="member-bio">
+                        Crafts ASPIRA's online presence to engage youth and amplify the organization's message across digital platforms.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="team-member hidden-member">
+                <div class="member-image">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Tyler Nguyen">
+                </div>
+                <div class="member-info">
+                    <h4 class="member-name">Tyler Nguyen</h4>
+                    <p class="member-role">Volunteer Coordinator</p>
+                    <p class="member-bio">
+                        Manages ASPIRA's volunteer network and creates meaningful engagement opportunities for supporters.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Show More Button -->
+        <div class="expand-btn-container">
+            <button class="expand-btn pink-expand">Show More Members +</button>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Your existing team styles remain the same */
+    .team-members {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+    }
+    
+    .team-member {
+        background-color: rgba(50, 65, 134, 0.342);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .member-image {
+        height: 250px;
+        overflow: hidden;
+    }
+    
+    .member-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .member-info {
+        padding: 20px;
+    }
+    
+    .member-name {
+        margin: 0 0 5px;
+        font-size: 1.2rem;
+        color: #ffffff;
+    }
+    
+    .member-role {
+        margin: 0 0 10px;
+        color: #e8c2f1;
+        font-size: 0.9rem;
+    }
+    
+    .member-bio {
+        margin: 0;
+        color: #c7c6c6;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Expandable feature styles */
+    .hidden-member {
+        display: none;
+    }
+    
+    .expand-btn-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .pink-expand {
+        background-color: #f0ccd9f1;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255,107,158,0.3);
+    }
+    
+    .pink-expand:hover {
+        background-color: #e9b8c8;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255,107,158,0.4);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const viewMoreBtn = document.querySelector('.pink-expand');
+        const hiddenMembers = document.querySelectorAll('.hidden-member');
+        
+        viewMoreBtn.addEventListener('click', function() {
+            // Toggle all hidden members
+            hiddenMembers.forEach(member => {
+                member.classList.toggle('hidden-member');
+            });
+            
+            // Change button text
+            if (viewMoreBtn.textContent.includes('Show More')) {
+                viewMoreBtn.textContent = 'Show Less -';
+            } else {
+                viewMoreBtn.textContent = 'Show More Members +';
+                // Smooth scroll to team section when collapsing
+                setTimeout(() => {
+                    document.getElementById('team').scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+            }
+        });
+    });
+</script>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ASPIRA</h3>
+                    <p style="color: var(--slate-light); margin-top: 20px; line-height: 1.7;">
+                        Empowering the next generation of young entrepreneurs through education, mentorship, and community building.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li class="footer-link"><a href="#about"><i class="fas fa-chevron-right"></i> About Us </a></li>
+                        <li class="footer-link"><a href="#modules"><i class="fas fa-chevron-right"></i> Modules </a></li>
+                        <li class="footer-link"><a href="#team"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+                        <li class="footer-link"><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="mailto:info@aspira.org"><i class="fas fa-envelope"></i> aspiraorganization@gmail.com</a></li>
+                        <li class="footer-link"><a href="tel:+1234567890"><i class="fas fa-phone"></i> 980-201-1576</a></li>
+                        <li class="footer-link"><a href="#"><i class="fas fa-map-marker-alt"></i>  North Carolina </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 ASPIRA Youth Organization. All rights reserved. Made By Shivang Patel
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Change active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

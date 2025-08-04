@@ -1,0 +1,33 @@
+{
+  "name": "aspira-website",
+  "version": "1.0.0",
+  "description": "Official website for Aspira Organization - inspiring entrepreneurship through collaborative learning",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "build": "echo 'Static site - no build process needed'",
+    "deploy": "echo 'Deploy to your preferred hosting platform'"
+  },
+  "keywords": [
+    "aspira",
+    "entrepreneurship",
+    "business",
+    "education",
+    "remote",
+    "collaboration",
+    "content-creation"
+  ],
+  "author": "Aspira Team - Myra (President), Shivang (Video Reels Officer)",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aspira-org/website.git"
+  },
+  "homepage": "https://aspira-org.netlify.app",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
